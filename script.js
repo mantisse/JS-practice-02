@@ -58,4 +58,4 @@ console.log("--------7--------");
 // for (let i=0; i<5; i++){
 //     let j = Math.floor(Math.random() * 11);
 //     console.log(j);
-}
+// }
