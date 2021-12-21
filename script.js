@@ -90,13 +90,11 @@ console.log("Ciklas prasisuko x" + f);
 // 10 uzd - Vienas colis yra 2,54 cm. Sudarykite programą kuri pateiktų ekrane lentelę nuo 1 iki n centimetrus coliais ir atvirkščiai.
 console.log("--------10--------");
 
-// var n;
-// const centimeters = inches * 2.54;
-
-// function centimetersToInches (centimeters, inches){
-//     n 
-//     console.log()
-// }
+let n = 15;
+for (let m = 1; m <= n; m++) {
+    console.log(m + " cm = " + (m / 2.54).toFixed(2) + " in" + "  ||  " + m + " in = " + (m * 2.54).toFixed(2) + " cm");
+}
 
 
-
+// 11 uzd - Bankas moka 2% metinių palūkanų. Indėlininkas pasidėjo į banką 100e. Sudarykite kasmetinę banko ataskaitą klientui iki n metų. Ataskaitoje pateikite: metus, palūkanas, indėlį.
+console.log("--------11--------");
