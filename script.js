@@ -65,7 +65,7 @@ console.log("--------8--------");
 
 let d;
 let sum = 0;
-while (sum < 100) {
+while (sum <= 100) {
     d = Math.floor(Math.random() * 11);
     sum += d;
     console.log(d);
@@ -98,3 +98,36 @@ for (let m = 1; m <= n; m++) {
 
 // 11 uzd - Bankas moka 2% metinių palūkanų. Indėlininkas pasidėjo į banką 100e. Sudarykite kasmetinę banko ataskaitą klientui iki n metų. Ataskaitoje pateikite: metus, palūkanas, indėlį.
 console.log("--------11--------");
+
+
+
+// function 
+let metai = 5;
+let indelis = 100;
+let palukanuNorma = 0.02;
+let palukanos;
+
+for (let i = 1; i<=metai; i++){
+    palukanos = (indelis*palukanuNorma);
+    indelis = indelis + palukanos;
+    console.log("metai " + i + " | palūkanos "+ palukanos.toFixed(2) + " | indelio suma " + indelis.toFixed(2));
+}
+
+
+// 12 uzd - Dviženklio skaičiaus dešimčių skaitmuo tris kartus didesnis už vienetų skaitmenį. Jei tuos skaitmenis sukeistume vietomis, tai gautume skaičių, 36 vienetais mažesnį už duotąjį, raskite tą skaičių.
+
+console.log("--------12--------");
+
+for (let i = 10; i<100; i++){
+    let vienetai = i % 10;
+    let desimtys = Math.floor(i/10);
+    if (desimtys == (vienetai*3) && (vienetai*10 + desimtys)+36 == i){
+        console.log(i);
+    }
+}
+
+
+// 13 uzd - Raskite keturženklius skaičius, kurių pirmasis skaitmuo yra lyginis, o skaičius nesidalina iš 998 ?
+console.log("--------13--------");
+// for (i=1000; i<10000; i++){
+
