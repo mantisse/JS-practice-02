@@ -164,14 +164,14 @@ skaitmenuSuma(125635657553);
 // 18. Duotas natūralusis skaičius n. Raskite atvirkščią skaičių duotajam. Pvz.: n=123, atv =321
 console.log("--------18--------");
 
-function reverse(skaicius){
+function reverse(skaicius) {
     let atgalinisSkaicius = 0;
-    while (skaicius > 0){
+    while (skaicius > 0) {
         let paskutinisSkaitmuo = skaicius % 10;
         atgalinisSkaicius = atgalinisSkaicius * 10 + paskutinisSkaitmuo;
         skaicius = Math.floor(skaicius / 10);
     }
-    console.log("Atgalinis skaicius "+atgalinisSkaicius);
+    console.log("Atgalinis skaicius " + atgalinisSkaicius);
 
 }
 reverse(8743)
@@ -222,8 +222,8 @@ reverse(8743)
 console.log("--------Masyvai-1--------");
 
 let masyvas = [];
-for (let i=0; i<30; i++){
-    masyvas[i]=Math.floor(Math.random()*21)+5; //Math.floor(Math.random()*(max-min)+1)+min; [5,25]
+for (let i = 0; i < 30; i++) {
+    masyvas[i] = Math.floor(Math.random() * 21) + 5; //Math.floor(Math.random()*(max-min)+1)+min; [5,25]
 }
 console.log(masyvas);
 
@@ -231,12 +231,12 @@ console.log(masyvas);
 // a. Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
 console.log("--------Masyvai-2a--------");
 let daugiauUz10 = 0;
-for (i=0; i<masyvas.length; i++){
-    if(masyvas[i]>10){
+for (i = 0; i < masyvas.length; i++) {
+    if (masyvas[i] > 10) {
         daugiauUz10++;
     }
 }
-console.log("Reiksmiu didesniu uz 10 yra "+daugiauUz10);
+console.log("Reiksmiu didesniu uz 10 yra " + daugiauUz10);
 
 // b. Raskite didžiausią masyvo reikšmę ir jos indeksą arba indeksus jeigu yra keli;
 console.log("--------Masyvai-2b--------");
@@ -244,29 +244,144 @@ console.log("--------Masyvai-2b--------");
 let max = 0;
 let indeksas = [];
 
-for (let i=0; i<masyvas.length; i++){
-    if(masyvas[i] > max){
-        max = masyvas[i];
-    }
-}
+// for (let i = 0; i < masyvas.length; i++) {
+//     if (masyvas[i] > max) {
+//         max = masyvas[i];
+//     }
+// }
 
-for (let i=0; i<masyvas.length; i++){
-    if (max === masyvas[i]){
+// for (let i = 0; i < masyvas.length; i++) {
+//     if (max === masyvas[i]) {
+//         indeksas.push(i);
+//     }
+// }
+// console.log("Didz. skaicius " + max + ", indeksas# " + indeksas);
+
+
+console.log("--------Masyvai-2b-kitaip---------");
+
+for (let i = 0; i < masyvas.length; i++) {
+    if (masyvas[i] == max) {
         indeksas.push(i);
+    } else if (masyvas[i] > max) {
+        max = masyvas[i];
+        indeksas = [];
+        indeksas.push(i); //indeksas = [i] - tas pats kaip paskutines dvi eiliutes
     }
 }
-console.log("Didz. skaicius "+max+"indeksas# "+indeksas);
+console.log("Didz. skaicius " + max + ", indeksas# " + indeksas);
+
+
 
 // c. Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
+console.log("--------Masyvai-2c--------");
+
+let lyginiuIndeksuReiksmiuSuma = 0;
+let nelyginiuIndeksuReiksmiuSuma = 0;
+// for (let i = 0; i < masyvas.length; i++){
+//     if (i % 2 == 0){
+//         lyginiuIndeksuReiksmiuSuma = lyginiuIndeksuReiksmiuSuma + masyvas [i];
+//     }
+// }
+
+for (let i = 0; i < masyvas.length; i = i + 2) {
+    lyginiuIndeksuReiksmiuSuma = lyginiuIndeksuReiksmiuSuma + masyvas[i];
+}
+console.log("Lyginių indeksų reikšmių suma yra: " + lyginiuIndeksuReiksmiuSuma);
+
+for (let i = 1; i < masyvas.length; i = i + 2) {
+    nelyginiuIndeksuReiksmiuSuma = nelyginiuIndeksuReiksmiuSuma + masyvas[i];
+}
+console.log("Nelyginių indeksų reikšmių suma yra: " + nelyginiuIndeksuReiksmiuSuma);
+
 // d. Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
+console.log("--------Masyvai-2d--------");
+
+let naujasMasyvas = [];
+for (i = 0; i < masyvas.length; i++) {
+    naujasMasyvas[i] = masyvas[i] - i; //naujasMasyvas.push(masyvas[i]-i);
+}
+console.log("Naujas masyvas: " + naujasMasyvas);
+
 // e. Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
+console.log("--------Masyvai-2e--------");
+
+for (i = 0; i < 10; i++) {
+    masyvas.push(Math.floor(Math.random() * 21) + 5) //masyvas[i] = Math.floor(Math.random() * 21) + 5;
+}
+console.log(masyvas);
+
+
 // f. Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
+console.log("--------Masyvai-2f--------");
+
+let masyvas1 = [];
+let masyvas2 = [];
+
+for (let i = 0; i < masyvas.length; i++) {
+    if (i % 2 === 0) {
+        masyvas1.push(masyvas[i]);
+    }
+}
+console.log("Neporinių indeksų masyvo skaičiai: ", masyvas1);
+
+for (let i = 0; i < masyvas.length; i++) {
+    if (i % 2 !== 0) {
+        masyvas2.push(masyvas[i]);
+    }
+}
+console.log("Porinių indeksų masyvo skaičiai: ", masyvas2);
+
+
 // g. Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
+console.log("--------Masyvai-2g--------");
+
+let masyvas3 = [];
+for (let i = 0; i < masyvas2.length; i++) {
+    if (masyvas2[i] > 15) {
+        masyvas2[i] = 0;
+    }
+    masyvas3.push(masyvas2[i]);
+}
+console.log(masyvas3);
+
 // h. Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
+console.log("--------Masyvai-2h--------");
+
+
+for (let i = 0; i < masyvas.length; i++) {
+    masyvas[i] > 10;
+}
+console.log(i);
+
+
 
 // 3. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
 // 4. Išrūšiuokite 3 uždavinio masyvą pagal abecėlę.
 // 5. Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
+console.log("--------5-uzduotis-Masyvai--------");
+
+let unikalusMasyvas1 = [];
+let unikalusMasyvas2 = [];
+
+while (unikalusMasyvas1.length < 100) {
+    let random1 = Math.floor(Math.random() * 900) + 100;
+    if (!unikalusMasyvas1.includes(random1)) {
+        unikalusMasyvas1.push(random1);
+    }
+}
+console.log(unikalusMasyvas1);
+
+for (i = 0; i < 100; i++) {
+    let random2 = Math.floor(Math.random() * 900) + 100;
+    if (!unikalusMasyvas2.includes(random2)) {
+        unikalusMasyvas2.push(random2);
+    } else {
+        i--;
+    }
+}
+console.log(unikalusMasyvas2);
+
 // 6. Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 5 uždavinio masyve, bet nėra antrame 5 uždavinio masyve.
 // 7. Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 5 uždavinio masyvuose.
 // 8. Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25. Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t.
